@@ -1,0 +1,98 @@
+<html>
+<head>
+	<title>
+	Rock Paper Scissors
+	</title>
+	<style>
+		h1 { text-align: center }
+		div { border-radius: 25px;
+			background-color: #ffffff;
+			border: 2px solid #999999;
+			padding: 20px; 
+			margin-left: auto;
+			margin-right: auto;
+			width: 40em
+			}
+		
+	</style>
+	  <script type="text/javascript">
+
+		window.onload=function(){
+		  
+		function logSubmit(event) {
+			player = document.getElementById("player").value;
+			enemy = Math.floor(Math.random() * 3)+1;
+			if (player == 1) {
+					switch (enemy) {
+						case 1:
+							popalert("Your Rock ties with Comp Rock");
+							break;
+						case 2:
+							popalert("Your Rock gets wrappede by Comp Paper");
+							break;
+						case 3:
+							popalert("Your Rock breaks Comp Scissors");
+							break;
+			   }
+				}else if (player == 2){
+					switch (enemy) {
+						case 1:
+							popalert("Your Paper wraps Comp Rock");
+							break;
+						case 2:
+							popalert("Your Paper ties Comp Paper");
+							break;
+						case 3:
+							popalert("Your Paper gets cut by Comp Scissors");
+							break;
+					}
+				}else {
+					  switch (enemy) {
+						case 1:
+							popalert("Your Scissors are crushed by Comp Rock");
+							break;
+						case 2:
+							popalert("Your Scissors cut Comp Paper");
+							break;
+						case 3:
+							popalert("Your Scissors tie Scissors");
+							break;
+					}
+		   }
+		  event.preventDefault();
+		}
+		function popalert(gametxt){
+				alert(gametxt);
+			var node = document.createElement("LI");
+			var textnode = document.createTextNode(gametxt);
+			node.appendChild(textnode);
+			document.getElementById("log").appendChild(node);
+		}
+		const form = document.getElementById('form');
+		const log = document.getElementById('log');
+		form.addEventListener('submit', logSubmit);
+		var player, enemy;
+
+			}
+
+	</script>
+</head>
+	<center>
+	<h1>
+		Rock Paper Scissors
+	</h1>
+	<div>
+		To play select your input by chhosing from the drop down list, then hit submit.
+		<form id="form">	
+			<select id="player" name="player">
+			  <option value="1">Rock</option>
+			  <option value="2">Paper</option>
+			  <option value="3">Scissors</option>
+			</select>
+		  <input type="submit" id="subBtn" value="Submit">
+		</form>
+		<p id="log"></p>
+	</div>
+	</center>
+</body>
+</html>
